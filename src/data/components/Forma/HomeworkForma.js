@@ -23,7 +23,7 @@ class HomeworkForma extends Component {
                     <input value={this.state.inputValue} onChange={this.onInputChange} placeholder="type id or name"/>
                 </form>
                 {
-                    this.state.finalUsers.length !==0 && (
+                    (this.state.finalUsers.length !==0 && this.state.inputValue !== ' ') && (
                     this.state.finalUsers.map(user => <User user={user} key={user.id}/>)
                     )
                 }
