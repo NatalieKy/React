@@ -11,13 +11,6 @@ import HomeworkForma from "./data/components/Forma/HomeworkForma";
 function App() {
   return (
       <div>
-        {/*<Users/>*/}
-        {/*<Posts/>*/}
-        {/*<Comments/>*/}
-        {/*<NotControlledForma/>*/}
-        {/*<ControlledForma/>*/}
-        <HomeworkForma/>
-
       </div>
   );
 }
