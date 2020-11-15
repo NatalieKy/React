@@ -8,14 +8,17 @@ class Posts extends Component {
     state = {posts: []}
 
     async componentDidMount() {
-        this.setState({posts: await this.api.getAllPosts()})
+        this.setState({posts: await this.api.getAllPostsOfUser(this.props.match.params.id)})
     }
 
     render() {
+
         return (
             <div>
+                <h3>User {this.props.match.params.id} posts</h3>
                 {
-                    this.state.posts.map(post => <Post key={post.id} post={post}/>)
+                    this.state.posts.map(post =>
+                        <Post key={post.id} post={post}/>)
                 }
             </div>
         );

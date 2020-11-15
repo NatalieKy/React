@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import jsonService from "./jsonService";
-import {withRouter, Link, NavLink, BrowserRouter} from "react-router-dom";
+import {withRouter, Link, NavLink, BrowserRouter, Switch, Route} from "react-router-dom";
+import Posts from "./Posts";
 
 
 class User extends Component {
@@ -19,16 +20,21 @@ class User extends Component {
     }
 
     render() {
-
         let {id, name, username, email} = this.state.user
-
+        let {pathname} = this.props.location
         return (
             <div>
-                <p>{id}</p>
-                <p>{name}</p>
-                <p>{username}</p>
-                <p>{email}</p>
-
+                <div className="card">
+                    <div className="card-body">
+                        <h4 className="card-title">User id: {id}</h4>
+                        <h6 className="card-subtitle mb-2 text-muted">User name: {name}</h6>
+                        <p className="card-text">
+                            Username: {username}
+                            Email: {email}
+                        </p>
+                        <NavLink to={`${pathname}/posts`} className="card-link">User {id} posts</NavLink>
+                    </div>
+                </div>
             </div>
 
         );

@@ -28,7 +28,6 @@ class Users extends Component {
                         </NavLink>
                     </div>)
                 }
-                <hr/>
                 <Switch>
                     <Route path={`${path}/:id`} component={User}/>
                 </Switch>

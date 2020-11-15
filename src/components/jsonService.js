@@ -15,8 +15,8 @@ export  class jsonService{
         return user.json();
     }
 
-    async getAllPosts() {
-        return (await fetch(this.secondUrl)).json()
+    async getAllPostsOfUser(id) {
+        return (await fetch(`${this.secondUrl}?userId=${id}`)).json()
     }
 
     async getAllComments() {
