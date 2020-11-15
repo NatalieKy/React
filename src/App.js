@@ -1,36 +1,25 @@
 import './App.css';
-
 import React from "react";
-import {Route, Switch} from "react-router";
-import Users from "./data/components/Users";
+import Users from "../src/components/Users";
+import Posts from "../src/components/Posts";
+import {NavLink, Route, Switch, BrowserRouter as Router} from "react-router-dom";
 
-import {NavLink} from "react-router-dom";
-import Posts from "./data/components/Posts";
-import User from "./data/components/User";
 
 function App() {
-  return (
-      <div>
-          <div >
-              <NavLink exact to='/' className={'myOwnClass'}>Home</NavLink>
-              <NavLink to='/users' className={'myOwnClass'}>Users</NavLink>
-              <NavLink
-                  to={{pathname: '/posts', search: '?a=1&b=2', hash: 'xxx'}}
-                       className={'myOwnClass'}>
-                  Posts
-              </NavLink>
-          </div>
-
-        <div>
-            <Switch>
-                <Route path='/users/:id' component={User}/>
-                <Route path='/users' component={Users}/>
-                <Route path='/posts' component={Posts}/>
-                <Route path='/' render={() => <h1>This is main component</h1>}/>
-            </Switch>
-        </div>
-      </div>
-  );
+    return (
+        <Router>
+            <div className={"d-flex justify-content-center"}>
+                <NavLink className={"p-2"} to='/'>Home</NavLink>
+                <NavLink className={"p-2"} to='/users'>Users</NavLink>
+            </div>
+            <div>
+                <Switch>
+                    <Route path='/users/:id/posts' component={Posts}/>
+                    <Route path='/users' component={Users}/>
+                    <Route path='/' render={() => {return <h1 className={"text-center"}>Hello, this is homepage!</h1>}}/>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 export default App;
-
